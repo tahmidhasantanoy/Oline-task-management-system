@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const Registration = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
+      <Helmet>
+        <title>Task manager | SignUp</title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Create your own account</h1>

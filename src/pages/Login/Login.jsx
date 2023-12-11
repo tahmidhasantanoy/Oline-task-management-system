@@ -2,10 +2,15 @@
 import Lottie from "lottie-react";
 import login from "../../../public/animation/login.json";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
 const Login = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
+      <Helmet>
+        <title>Task manager | Login</title>
+      </Helmet>
       <div>
         <h1 className="text-5xl text-center font-bold pt-7 pb-0">Login now!</h1>
         <div className="hero-content flex-col lg:flex-row-reverse">
