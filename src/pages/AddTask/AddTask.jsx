@@ -8,7 +8,7 @@ const AddTask = () => {
           <title>Task manager | Add task</title>
         </Helmet>
         <h3 className="text-5xl text-center font-semibold text-slate-300 mb-12">
-          Enter your toy details information{" "}
+          Enter Assignment with details{" "}
         </h3>
         <form onSubmit={""}>
           <div className="grid gap-6 mb-6 md:grid-cols-2">
@@ -85,9 +85,7 @@ const AddTask = () => {
               />
             </div>
           </div>
-          
-          
-       
+
           <div className="mb-6">
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Description
@@ -111,13 +109,18 @@ const AddTask = () => {
             </div>
             <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
               I agree with the{" "}
-              <a href="#" className="text-info hover:underline dark:text-cyan-500">
+              <a
+                href="#"
+                className="text-info hover:underline dark:text-cyan-500"
+              >
                 terms and conditions
               </a>
               .
             </label>
           </div>
-          <button className="btn btn-active bg-cyan-500  text-white">Submit</button>
+          <button className="btn btn-active bg-cyan-500  text-white">
+            Submit
+          </button>
         </form>
       </div>
     </div>
