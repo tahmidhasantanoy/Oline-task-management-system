@@ -1,4 +1,3 @@
-import { Link, NavLink } from "react-router-dom";
 import ActiveLink from "../../../ActiveLink/ActiveLink";
 // import  "./Header.css"
 
@@ -6,19 +5,13 @@ const Header = () => {
   const menus = (
     <>
       <li>
-        <ActiveLink to="/dashboard" >Dashboard</ActiveLink>
+        <ActiveLink to="/dashboard">Dashboard</ActiveLink>
       </li>
       <li>
-        <NavLink
-          className={({ isActive }) => {
-            isActive ? "active" : "";
-          }}
-        >
-          Add task
-        </NavLink>
+        <ActiveLink to="/add-task">Add task</ActiveLink>
       </li>
       <li>
-        <Link>Item 3</Link>
+        <ActiveLink to="/x">X</ActiveLink>
       </li>
     </>
   );
