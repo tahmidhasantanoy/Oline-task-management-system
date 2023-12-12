@@ -1,0 +1,11 @@
+.active {
+  color: cyan;
+  background-color: transparent;
+  border-bottom: 2px solid rgb(246, 78, 106);
+}
+.active:hover {
+  background-color: transparent;
+}
+.pending {
+  background-color: transparent;
+}

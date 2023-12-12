@@ -1,14 +1,24 @@
+import { Link, NavLink } from "react-router-dom";
+import ActiveLink from "../../../ActiveLink/ActiveLink";
+// import  "./Header.css"
+
 const Header = () => {
   const menus = (
     <>
       <li>
-        <a>Dashboard</a>
+        <ActiveLink to="/dashboard" >Dashboard</ActiveLink>
       </li>
       <li>
-        <a>Add task</a>
+        <NavLink
+          className={({ isActive }) => {
+            isActive ? "active" : "";
+          }}
+        >
+          Add task
+        </NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <Link>Item 3</Link>
       </li>
     </>
   );
@@ -49,9 +59,7 @@ const Header = () => {
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {menus}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{menus}</ul>
       </div>
 
       <div className="navbar-end ">
