@@ -1,11 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../..//Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Registration = () => {
+  const [err, setErr] = useState("");
   const { createUser } = useContext(AuthContext);
 
   const handleSubmitSignup = (event) => {
+    setErr("");
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -16,7 +19,7 @@ const Registration = () => {
 
     createUser(email, password)
       .then((res) => console.log(res.user))
-      .catch((err) => console.log(err.message));
+      .catch((err) => setErr(err.message));
   };
 
   return (
@@ -62,11 +65,17 @@ const Registration = () => {
                 </a>
               </label>
             </div>
-            <p className="text-red-500">{"err"}</p>
+            <p className="text-red-500">{err}</p>
             <div className="form-control mt-6">
               <button className="btn btn-info rounded-sm">Sign Up</button>
             </div>
           </form>
+          <p className="text-center  mb-5">
+            Already have an acccount?
+            <Link to={"/login"}>
+              &nbsp; <span className="underline text-cyan-500">Login</span>
+            </Link>
+          </p>
         </div>
       </div>
     </div>

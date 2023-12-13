@@ -3,18 +3,25 @@ import Lottie from "lottie-react";
 import login from "../../../public/animation/login.json";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const [err, setErr] = useState("");
+  const { loginUser } = useContext(AuthContext);
 
   const handleSubmitLogin = (event) => {
+    setErr("");
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email,password);
+    console.log(email, password);
 
+    loginUser(email, password)
+      .then((res) => console.log(res.user))
+      .catch((err) => setErr(err.message));
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -56,7 +63,7 @@ const Login = () => {
                   </a>
                 </label>
               </div>
-              <p className="text-red-500">{"err"}</p>
+              <p className="text-red-500">{err}</p>
               <div className="form-control mt-6">
                 <button className="btn btn-info rounded-sm">Login</button>
               </div>
@@ -84,11 +91,13 @@ const Login = () => {
               </div> */}
               <p>
                 {" "}
-                <Link to="/signup" className="text-info ">
-                  <p className="text-center justify-center">
-                    Don't have an account?
-                  </p>
-                </Link>
+                <p className="text-center  mb-5">
+                  Don't have an account?
+                  <Link to={"/signup"}>
+                    &nbsp;{" "}
+                    <span className="underline text-cyan-500">SignUp</span>
+                  </Link>
+                </p>
               </p>
             </div>
           </div>
