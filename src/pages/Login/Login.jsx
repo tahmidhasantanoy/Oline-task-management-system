@@ -4,14 +4,17 @@ import login from "../../../public/animation/login.json";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
+
 const Login = () => {
+
   const handleSubmitLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email, password);
+    console.log(email,password);
+
   };
   return (
     <div className="hero min-h-screen bg-base-200">

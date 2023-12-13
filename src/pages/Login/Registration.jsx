@@ -1,15 +1,24 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
-// import { Link } from "react-router-dom";
+import { AuthContext } from "../..//Provider/AuthProvider";
 
 const Registration = () => {
+  const { createUser } = useContext(AuthContext);
+
   const handleSubmitSignup = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email, password);
+    console.log("email", email, "pass", password);
+    console.log(createUser);
+
+    createUser(email, password)
+      .then((res) => console.log(res.user))
+      .catch((err) => console.log(err.message));
   };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <Helmet>
@@ -55,7 +64,7 @@ const Registration = () => {
             </div>
             <p className="text-red-500">{"err"}</p>
             <div className="form-control mt-6">
-              <button className="btn btn-info rounded-sm">Login</button>
+              <button className="btn btn-info rounded-sm">Sign Up</button>
             </div>
           </form>
         </div>
