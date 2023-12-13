@@ -1,7 +1,16 @@
+import { useContext } from "react";
 import ActiveLink from "../../../ActiveLink/ActiveLink";
-// import  "./Header.css"
+import { AuthContext } from "../../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const { user, logoutUser } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logoutUser();
+  };
+
+  
   const menus = (
     <>
       <li>
@@ -81,13 +90,11 @@ const Header = () => {
               tabIndex={0}
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a className="justify-between">Profile</a>
-              </li>
-
-              <li>
-                <a>Logout</a>
-              </li>
+              {user ? (
+                <Link onClick={() => handleLogout()}>Logout</Link>
+              ) : (
+                <Link to={"/login"}>Login</Link>
+              )}
             </ul>
           </div>
         </div>
